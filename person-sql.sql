@@ -25,3 +25,26 @@ ORDER BY age ASC
 
 SELECT * FROM person
 WHERE favorite_color = 'yellow' OR favorite_color = 'purple'
+
+CREATE TABLE orders(
+	person_id SERIAL PRIMARY KEY,
+	product_name VARCHAR(100), 
+	product_price DECIMAL(2), 
+	quantity INT
+)
+
+INSERT INTO orders (person_id, product_name, product_price, quantity)
+VALUES(5, 'shoes', 50.01, 1),
+(5, 'tongs', 18.73, 2),
+(10, 'lb of steak', 7.99, 20),
+(10, 'nails', 0.25, 100)
+
+SELECT * FROM orders
+
+SELECT SUM(quantity)
+FROM orders
+
+SELECT SUM(product_price)
+FROM orders
+WHERE person_id = 5
+
